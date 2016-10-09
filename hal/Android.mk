@@ -330,6 +330,11 @@ LOCAL_SHARED_LIBRARIES := \
         libhidltransport \
         libprocessgroup
 else
+
+ifeq ($(strip $(SNDRV_COMPRESS_SET_NEXT_TRACK_PARAM)),true)
+    LOCAL_CFLAGS += -DSNDRV_COMPRESS_SET_NEXT_TRACK_PARAM
+endif
+
 LOCAL_SHARED_LIBRARIES := \
 	liblog \
 	libcutils \
