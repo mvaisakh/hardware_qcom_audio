@@ -72,7 +72,7 @@ ifeq ($(TARGET_BOARD_AUTO),true)
   LOCAL_CFLAGS += -DPLATFORM_AUTO
 endif
 
-LOCAL_CFLAGS += -Wno-macro-redefined
+LOCAL_CFLAGS += -Wno-macro-redefined -Wno-implicit-function-declaration
 
 LOCAL_HEADER_LIBRARIES := libhardware_headers
 
@@ -322,7 +322,7 @@ LOCAL_SHARED_LIBRARIES := \
         liblog \
         libcutils \
         libtinyalsa \
-        libtinycompress_vendor \
+        libtinycompress \
         libaudioroute \
         libdl \
         libaudioutils \
@@ -334,16 +334,11 @@ LOCAL_SHARED_LIBRARIES := \
 	liblog \
 	libcutils \
 	libtinyalsa \
+	libtinycompress \
 	libaudioroute \
 	libdl \
 	libaudioutils \
 	libexpat
-endif
-
-ifneq ($(strip $(TARGET_USES_AOSP_FOR_AUDIO)),true)
-    LOCAL_SHARED_LIBRARIES += libtinycompress_vendor
-else
-    LOCAL_SHARED_LIBRARIES += libtinycompress
 endif
 
 LOCAL_C_INCLUDES += \
