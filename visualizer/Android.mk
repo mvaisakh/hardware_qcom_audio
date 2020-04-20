@@ -47,7 +47,12 @@ LOCAL_SHARED_LIBRARIES := \
 
 LOCAL_MODULE_RELATIVE_PATH := soundfx
 LOCAL_MODULE:= libqcomvisualizer
+
+ifneq ($(TARGET_OVERLAYS_AUDIOHAL), true)
 LOCAL_VENDOR_MODULE := true
+else
+LOCAL_VENDOR_OVERLAY_MODULE := true
+endif
 
 LOCAL_C_INCLUDES := \
     external/tinyalsa/include \

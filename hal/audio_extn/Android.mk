@@ -7,7 +7,12 @@ include $(CLEAR_VARS)
 
 LOCAL_MODULE := libsndmonitor
 LOCAL_MODULE_OWNER := third_party
+
+ifneq ($(TARGET_OVERLAYS_AUDIOHAL), true)
 LOCAL_VENDOR_MODULE := true
+else
+LOCAL_VENDOR_OVERLAY_MODULE := true
+endif
 
 AUDIO_PLATFORM := $(TARGET_BOARD_PLATFORM)
 
@@ -59,7 +64,13 @@ include $(CLEAR_VARS)
 
 LOCAL_MODULE := libcomprcapture
 LOCAL_MODULE_OWNER := third_party
+
+ifneq ($(TARGET_OVERLAYS_AUDIOHAL), true)
 LOCAL_VENDOR_MODULE := true
+else
+LOCAL_VENDOR_OVERLAY_MODULE := true
+endif
+
 
 AUDIO_PLATFORM := $(TARGET_BOARD_PLATFORM)
 
@@ -117,7 +128,12 @@ include $(BUILD_SHARED_LIBRARY)
 include $(CLEAR_VARS)
 
 LOCAL_MODULE := libssrec
+
+ifneq ($(TARGET_OVERLAYS_AUDIOHAL), true)
 LOCAL_VENDOR_MODULE := true
+else
+LOCAL_VENDOR_OVERLAY_MODULE := true
+endif
 
 AUDIO_PLATFORM := $(TARGET_BOARD_PLATFORM)
 
@@ -178,7 +194,12 @@ include $(CLEAR_VARS)
 
 LOCAL_MODULE := libhdmiedid
 LOCAL_MODULE_OWNER := third_party
+
+ifneq ($(TARGET_OVERLAYS_AUDIOHAL), true)
 LOCAL_VENDOR_MODULE := true
+else
+LOCAL_VENDOR_OVERLAY_MODULE := true
+endif
 
 PRIMARY_HAL_PATH := vendor/qcom/opensource/audio-hal/primary-hal/hal
 AUDIO_PLATFORM := $(TARGET_BOARD_PLATFORM)
@@ -242,7 +263,12 @@ endif
 
 LOCAL_MODULE := libspkrprot
 LOCAL_MODULE_OWNER := third_party
+
+ifneq ($(TARGET_OVERLAYS_AUDIOHAL), true)
 LOCAL_VENDOR_MODULE := true
+else
+LOCAL_VENDOR_OVERLAY_MODULE := true
+endif
 
 LOCAL_SRC_FILES:= \
         spkr_protection.c
@@ -297,7 +323,12 @@ endif
 
 LOCAL_MODULE := libcirrusspkrprot
 LOCAL_MODULE_OWNER := third_party
+
+ifneq ($(TARGET_OVERLAYS_AUDIOHAL), true)
 LOCAL_VENDOR_MODULE := true
+else
+LOCAL_VENDOR_OVERLAY_MODULE := true
+endif
 
 LOCAL_SRC_FILES:= \
         cirrus_playback.c
@@ -346,7 +377,12 @@ include $(BUILD_SHARED_LIBRARY)
 include $(CLEAR_VARS)
 
 LOCAL_MODULE := liba2dpoffload
+
+ifneq ($(TARGET_OVERLAYS_AUDIOHAL), true)
 LOCAL_VENDOR_MODULE := true
+else
+LOCAL_VENDOR_OVERLAY_MODULE := true
+endif
 
 PRIMARY_HAL_PATH := vendor/qcom/opensource/audio-hal/primary-hal/hal
 AUDIO_PLATFORM := $(TARGET_BOARD_PLATFORM)
@@ -406,7 +442,11 @@ include $(CLEAR_VARS)
 
 LOCAL_MODULE := libexthwplugin
 
+ifneq ($(TARGET_OVERLAYS_AUDIOHAL), true)
 LOCAL_VENDOR_MODULE := true
+else
+LOCAL_VENDOR_OVERLAY_MODULE := true
+endif
 
 PRIMARY_HAL_PATH := vendor/qcom/opensource/audio-hal/primary-hal/hal
 AUDIO_PLATFORM := $(TARGET_BOARD_PLATFORM)
@@ -465,7 +505,12 @@ include $(BUILD_SHARED_LIBRARY)
 include $(CLEAR_VARS)
 
 LOCAL_MODULE := libhfp
+
+ifneq ($(TARGET_OVERLAYS_AUDIOHAL), true)
 LOCAL_VENDOR_MODULE := true
+else
+LOCAL_VENDOR_OVERLAY_MODULE := true
+endif
 
 PRIMARY_HAL_PATH := vendor/qcom/opensource/audio-hal/primary-hal/hal
 AUDIO_PLATFORM := $(TARGET_BOARD_PLATFORM)
@@ -526,7 +571,12 @@ ifneq ($(QCPATH),)
 include $(CLEAR_VARS)
 
 LOCAL_MODULE := libhdmipassthru
+
+ifneq ($(TARGET_OVERLAYS_AUDIOHAL), true)
 LOCAL_VENDOR_MODULE := true
+else
+LOCAL_VENDOR_OVERLAY_MODULE := true
+endif
 
 PRIMARY_HAL_PATH := vendor/qcom/opensource/audio-hal/primary-hal/hal
 AUDIO_PLATFORM := $(TARGET_BOARD_PLATFORM)
@@ -590,7 +640,12 @@ endif
 include $(CLEAR_VARS)
 
 LOCAL_MODULE := libbatterylistener
+
+ifneq ($(TARGET_OVERLAYS_AUDIOHAL), true)
 LOCAL_VENDOR_MODULE := true
+else
+LOCAL_VENDOR_OVERLAY_MODULE := true
+endif
 
 PRIMARY_HAL_PATH := vendor/qcom/opensource/audio-hal/primary-hal/hal
 AUDIO_PLATFORM := $(TARGET_BOARD_PLATFORM)
@@ -660,7 +715,12 @@ include $(BUILD_SHARED_LIBRARY)
 include $(CLEAR_VARS)
 
 LOCAL_MODULE := libhwdepcal
+
+ifneq ($(TARGET_OVERLAYS_AUDIOHAL), true)
 LOCAL_VENDOR_MODULE := true
+else
+LOCAL_VENDOR_OVERLAY_MODULE := true
+endif
 
 PRIMARY_HAL_PATH := vendor/qcom/opensource/audio-hal/primary-hal/hal
 AUDIO_PLATFORM := $(TARGET_BOARD_PLATFORM)
@@ -719,7 +779,12 @@ LOCAL_HEADER_LIBRARIES += libsystem_headers
 include $(CLEAR_VARS)
 
 LOCAL_MODULE:= libmaxxaudio
+
+ifneq ($(TARGET_OVERLAYS_AUDIOHAL), true)
 LOCAL_VENDOR_MODULE := true
+else
+LOCAL_VENDOR_OVERLAY_MODULE := true
+endif
 
 PRIMARY_HAL_PATH := vendor/qcom/opensource/audio-hal/primary-hal/hal
 AUDIO_PLATFORM := $(TARGET_BOARD_PLATFORM)
@@ -775,8 +840,13 @@ include $(BUILD_SHARED_LIBRARY)
 #-------------------------------------------
 include $(CLEAR_VARS)
 
-LOCAL_MODULE:= libaudiozoom
+LOCAL_MODULE := libaudiozoom
+
+ifneq ($(TARGET_OVERLAYS_AUDIOHAL), true)
 LOCAL_VENDOR_MODULE := true
+else
+LOCAL_VENDOR_OVERLAY_MODULE := true
+endif
 
 PRIMARY_HAL_PATH := vendor/qcom/opensource/audio-hal/primary-hal/hal
 AUDIO_PLATFORM := $(TARGET_BOARD_PLATFORM)
@@ -827,5 +897,3 @@ endif
 LOCAL_HEADER_LIBRARIES += libhardware_headers
 LOCAL_HEADER_LIBRARIES += libsystem_headers
 include $(BUILD_SHARED_LIBRARY)
-
-

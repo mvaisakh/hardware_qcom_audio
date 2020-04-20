@@ -15,9 +15,14 @@ LOCAL_CFLAGS += \
 LOCAL_MODULE:= libqcomvoiceprocessing
 LOCAL_MODULE_TAGS := optional
 LOCAL_MODULE_RELATIVE_PATH := soundfx
-LOCAL_VENDOR_MODULE := true
-LOCAL_MODULE_OWNER := qti
 
+ifneq ($(TARGET_OVERLAYS_AUDIOHAL), true)
+LOCAL_VENDOR_MODULE := true
+else
+LOCAL_VENDOR_OVERLAY_MODULE := true
+endif
+
+LOCAL_MODULE_OWNER := qti
 LOCAL_SRC_FILES:= \
     voice_processing.c
 

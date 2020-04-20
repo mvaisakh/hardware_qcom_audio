@@ -40,7 +40,12 @@ LOCAL_COPY_HEADERS      += inc/qahw_effect_virtualizer.h
 LOCAL_COPY_HEADERS      += inc/qahw_effect_visualizer.h
 
 LOCAL_PRELINK_MODULE    := false
-LOCAL_VENDOR_MODULE     := true
+
+ifneq ($(TARGET_OVERLAYS_AUDIOHAL), true)
+LOCAL_VENDOR_MODULE := true
+else
+LOCAL_VENDOR_OVERLAY_MODULE := true
+endif
 
 include $(BUILD_SHARED_LIBRARY)
 
